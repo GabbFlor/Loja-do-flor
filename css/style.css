@@ -44,7 +44,12 @@ header .lista ul {
     color: black;
 }
 
-header .lista ul li:hover {
+header .lista ul a {
+    color: black;
+    text-decoration: none;
+}
+
+header .lista ul li:hover, header .lista ul a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
@@ -75,7 +80,8 @@ main .banner img {
 .div-sobre-nos h1, 
 .div-maps h1,
 .div-detalhes-empresa h1,
-.div-video h1:not(.detalhes-escrita h1) {
+.div-video h1,
+.div-produtos h1:not(.detalhes-escrita h1) {
     text-align: center;
     font-weight: 400;
     margin-top: 25px;
@@ -265,4 +271,66 @@ footer nav ul li img {
         width: 75vw;
         height: 250px;
     }
+}
+
+
+
+
+/* PÁINA DE PRODUTOS */
+.div-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 25px;
+    color: rgb(180, 180, 180);
+}
+
+.grid-produtos {
+    display: grid;
+    /* 3 colunas */
+    grid-template-columns: repeat(3, 1fr);
+    /* 2 linhas */
+    grid-template-rows: repeat(2, 1r);
+    gap: 5vw;
+    padding: 25px;
+}
+
+.img-produto-temp {
+    background-color: white;
+    height: 15vw;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.produto {
+    border-radius: 15px;
+    border: 3px dashed;
+    padding: 15px;
+    border-image-source: linear-gradient(#8343dd, #e046be);
+    border-image-slice: 1;
+    color: white;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.produto h2 {
+    text-align: center;
+    font-size: 1.5vw;
+}
+
+.produto h2:hover, .produto span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.produto p, .produto span {
+    font-size: 1vw;
+    text-align: center;
+}
+
+.produto span {
+    color: lime;
 }
