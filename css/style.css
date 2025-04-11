@@ -191,89 +191,6 @@ footer nav ul li img {
     font-size: 1.5vw;
 }
 
-@media (max-width: 800px) {
-    .div-sobre-nos h1, 
-    .div-maps h1,
-    .div-detalhes-empresa h1,
-    .div-video h1:not(.detalhes-escrita h1) {
-        text-align: center;
-        font-weight: 400;
-        margin-top: 25px;
-        font-size: 3.5vw;
-        color: white;
-    }
-
-    .map-responsivo {
-        width: 75vw;
-        height: 500px;
-    }
-
-    .div-sobre-nos p, .div-detalhes-empresa section div p {
-        font-size: 2.5vw;
-        line-height: 25px;
-    }
-
-    .div-sobre-nos p {
-        text-align: justify;
-    }
-
-    .div-detalhes-empresa section {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5vw;
-    }
-
-    .div-detalhes-empresa section div {
-        width: 75vw;
-    }
-
-    .div-detalhes-empresa section div h1 {
-        font-size: 2.75vw;
-    }
-
-    footer nav ul li {
-        font-size: 2vw;
-        gap: 5px;
-        cursor: pointer;
-    }
-
-    footer nav ul li img {
-        height: 2vw;
-    }
-}
-
-@media (max-width: 500px) {
-    .logo img {
-        height: 5vh;
-    }
-
-    header h1 {
-        font-size: 10px;
-    }
-
-    header .lista ul {
-        font-size: 10px;
-    }
-
-    .div-sobre-nos h1, 
-    .div-maps h1,
-    .div-detalhes-empresa h1,
-    .div-video h1:not(.detalhes-escrita h1) {
-        font-size: 4.5vw;
-    }
-
-    .div-sobre-nos p, .div-detalhes-empresa section div p {
-        font-size: 3vw;
-        line-height: 20px;
-    }
-
-    .map-responsivo {
-        width: 75vw;
-        height: 250px;
-    }
-}
-
-
 
 
 /* PÁINA DE PRODUTOS */
@@ -333,4 +250,129 @@ footer nav ul li img {
 
 .produto span {
     color: lime;
+}
+
+/* responsividade para tablet */
+@media (max-width: 800px) {
+    .div-sobre-nos h1, 
+    .div-maps h1,
+    .div-detalhes-empresa h1,
+    .div-video h1:not(.detalhes-escrita h1) {
+        text-align: center;
+        font-weight: 400;
+        margin-top: 25px;
+        font-size: 3.5vw;
+        color: white;
+    }
+
+    .map-responsivo {
+        width: 75vw;
+        height: 500px;
+    }
+
+    .div-sobre-nos p, .div-detalhes-empresa section div p {
+        font-size: 2.5vw;
+        line-height: 25px;
+    }
+
+    .div-sobre-nos p {
+        text-align: justify;
+    }
+
+    .div-detalhes-empresa section {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5vw;
+    }
+
+    .div-detalhes-empresa section div {
+        width: 75vw;
+    }
+
+    .div-detalhes-empresa section div h1 {
+        font-size: 2.75vw;
+    }
+
+    footer nav ul li {
+        font-size: 2vw;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    footer nav ul li img {
+        height: 2vw;
+    }
+
+    .produto p, .produto span {
+        font-size: 1.5vw;
+        text-align: center;
+    }
+}
+
+/* responsividade para mobile */
+@media (max-width: 500px) {
+    .logo img {
+        height: 5vh;
+    }
+
+    header h1 {
+        font-size: 10px;
+    }
+
+    header .lista ul {
+        font-size: 10px;
+    }
+
+    .div-sobre-nos h1, 
+    .div-maps h1,
+    .div-detalhes-empresa h1,
+    .div-video h1,
+    .div-produtos h1:not(.detalhes-escrita h1) {
+        font-size: 4.5vw;
+    }
+
+    .div-sobre-nos p, .div-detalhes-empresa section div p, .produto p, .produto span {
+        font-size: 3vw;
+        line-height: 20px;
+    }
+
+    .map-responsivo {
+        width: 75vw;
+        height: 250px;
+    }
+
+    .produto h2 {
+        font-size: 3.5vw;
+    }
+
+    .grid-produtos {
+        display: grid;
+        /* 3 colunas */
+        grid-template-columns: repeat(1, 1fr);
+        /* 2 linhas */
+        grid-template-rows: repeat(6, 1r);
+        gap: 5vw;
+        padding: 25px;
+    }
+
+    .produto {
+        border-radius: 15px;
+        border: 3px dashed;
+        padding: 15px;
+        border-image-source: linear-gradient(#8343dd, #e046be);
+        border-image-slice: 1;
+        color: white;
+        width: 60vw;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .img-produto-temp {
+        background-color: white;
+        height: 50vw;
+        width: 100%;
+        margin: auto;
+        border-radius: 10px;
+    }
 }
