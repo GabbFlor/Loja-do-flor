@@ -233,23 +233,104 @@ footer nav ul li img {
     gap: 15px;
 }
 
-.produto h2 {
+.produto h2, .pop-up h2 {
     text-align: center;
     font-size: 1.5vw;
 }
 
-.produto h2:hover, .produto span:hover {
+.produto h2:hover, .produto span:hover, .pop-up h2:hover {
     cursor: pointer;
     text-decoration: underline;
 }
 
-.produto p, .produto span {
+.produto p, .produto span, .pop-up p {
     font-size: 1vw;
     text-align: center;
 }
 
 .produto span {
     color: lime;
+}
+
+.btn-saiba-mais {
+    width: fit-content;
+    padding: 5px 10px 5px 10px;
+    font-size: 1vw;
+    outline: none;
+    background-color: transparent;
+    border: 1.5px solid rgb(0, 247, 255);
+    color: rgb(0, 247, 255);
+    border-radius: 5px;
+    margin: auto;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    cursor: pointer;
+    background-color: rgb(0, 247, 255);
+    color: black;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vw;
+    background-color: rgba(0, 0, 0, 0.5); /* Cor preta com 50% de opacidade */
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+.pop-up {
+    position: fixed;
+    border-radius: 15px;
+    border: 3px dashed;
+    padding: 15px;
+    padding-top: 40px;
+    border-image-source: linear-gradient(#8343dd, #e046be);
+    border-image-slice: 1;
+    color: white;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.pop-up img {
+    background-color: white;
+    height: 20vw;
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.hidden-element {
+    display: none;
+}
+
+.btn-close-pop-up {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-close-pop-up img {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    height: 1.75vw;
+    color: white;
+    filter: invert(1) brightness(2);
 }
 
 /* responsividade para tablet */
@@ -303,9 +384,26 @@ footer nav ul li img {
         height: 2vw;
     }
 
-    .produto p, .produto span {
+    .produto p, .produto span, .pop-up p {
         font-size: 1.5vw;
         text-align: center;
+    }
+
+    .pop-up {
+        width: 35vw;
+    }
+
+    .pop-up img {
+        height: 25vw;
+    }
+
+    .btn-close-pop-up {
+        top: 2%;
+        right: 2%;
+    }
+
+    .btn-close-pop-up img {
+        height: 2.5vw;
     }
 }
 
@@ -331,7 +429,7 @@ footer nav ul li img {
         font-size: 4.5vw;
     }
 
-    .div-sobre-nos p, .div-detalhes-empresa section div p, .produto p, .produto span {
+    .div-sobre-nos p, .div-detalhes-empresa section div p, .produto p, .produto span, .pop-up p {
         font-size: 3vw;
         line-height: 20px;
     }
@@ -341,7 +439,7 @@ footer nav ul li img {
         height: 250px;
     }
 
-    .produto h2 {
+    .produto h2, .pop-up h2 {
         font-size: 3.5vw;
     }
 
@@ -374,5 +472,22 @@ footer nav ul li img {
         width: 100%;
         margin: auto;
         border-radius: 10px;
+    }
+
+    .pop-up {
+        width: 55vw;
+    }
+
+    .pop-up img {
+        height: 45vw;
+    }
+
+    .btn-close-pop-up {
+        top: 2%;
+        right: 2%;
+    }
+
+    .btn-close-pop-up img {
+        height: 4.5vw;
     }
 }

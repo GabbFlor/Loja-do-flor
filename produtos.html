@@ -6,7 +6,10 @@
     <title>Flor store - produtos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class=".body-class">
+    <!-- Chamando o script para funcionar o pop-up -->
+    <script src="scripts/Pop-up.js"></script>
+
     <header>
         <div class="logo">
             <img src="assets/icone-loja.png" alt="logo-loja">
@@ -38,6 +41,12 @@
                     <p>Potência máxima para games em 4K e criação de conteúdo avançada. Ray Tracing e DLSS 3 para gráficos realistas e alto desempenho.</p>
 
                     <span>R$ 8.499,99 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-1.jpg`, `Placa de vídeo RTX 4080 Super`, `Potência máxima para games em 4K e criação de conteúdo avançada. Ray Tracing e DLSS 3 para gráficos realistas e alto desempenho.`)"
+                        >Saiba mais
+                    </button>
                 </div>
 
                 <div class="produto">
@@ -49,6 +58,12 @@
                     <p>Desempenho extremo com 24 núcleos e frequência turbo de até 6.0GHz. Ideal para jogos e tarefas pesadas com máxima eficiência.</p>
 
                     <span>R$ 4.299,00 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-2.jpg`, `Processador Intel Core i9 14900K`, `Desempenho extremo com 24 núcleos e frequência turbo de até 6.0GHz. Ideal para jogos e tarefas pesadas com máxima eficiência.`)"
+                        >Saiba mais
+                    </button>
                 </div>
 
                 <div class="produto">
@@ -60,6 +75,12 @@
                     <p>Compacto e resistente, com switches Outemu e iluminação RGB personalizável. Ideal para precisão em jogos e durabilidade no uso diário.</p>
 
                     <span>R$ 280,64 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-3.jpg`, `Teclado Mecânico Redragon Kumara RGB`, `Compacto e resistente, com switches Outemu e iluminação RGB personalizável. Ideal para precisão em jogos e durabilidade no uso diário.`)"
+                        >Saiba mais
+                    </button>
                 </div>
 
 
@@ -73,6 +94,12 @@
                     <p>Controle sem fio com analógicos Hall Effect, botões traseiros programáveis e base de carregamento. Compatível com PC, Switch e dispositivos móveis.​</p>
 
                     <span>R$ 489,00 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-4.jpeg`, `Controle Gamer 8BitDo Ultimate 2.4G Wireless`, `Controle sem fio com analógicos Hall Effect, botões traseiros programáveis e base de carregamento. Compatível com PC, Switch e dispositivos móveis.`)"
+                        >Saiba mais
+                    </button>
                 </div>
 
                 <div class="produto">
@@ -84,6 +111,12 @@
                     <p>Leve e confortável, com drivers de 50mm e microfone com cancelamento de ruído. Ideal para longas sessões de jogo com áudio imersivo.</p>
 
                     <span>R$ 169,90 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-5.jpeg`, `Headset Gamer HyperX Cloud Stinger`, `Leve e confortável, com drivers de 50mm e microfone com cancelamento de ruído. Ideal para longas sessões de jogo com áudio imersivo.`)"
+                        >Saiba mais
+                    </button>
                 </div>
 
                 <div class="produto">
@@ -95,8 +128,28 @@
                     <p>Mouse sem fio com sensor de 16.000 DPI, iluminação RGB e 8 botões programáveis. Ideal para precisão e personalização em jogos competitivos.​</p>
 
                     <span>R$ 259,90 / cada</span>
+
+                    <button 
+                        class="btn-saiba-mais" 
+                        onclick="show_pop_up(`assets/produto-6.jpeg`, `Mouse Gamer Redragon M686 Vampire Elite`, `Mouse sem fio com sensor de 16.000 DPI, iluminação RGB e 8 botões programáveis. Ideal para precisão e personalização em jogos competitivos.`)"
+                        >Saiba mais
+                    </button>
                 </div>
             </div>
+        </section>
+
+
+        <!-- HTML do pop-up quando o btn for clicado -->
+        <div class="overlay hidden-element"></div>
+
+        <section class="pop-up hidden-element">
+            <button class="btn-close-pop-up" title="Fechar" onclick="hidden_pop_up()"><img src="assets/x-icon.svg" alt="btn-close"></button>
+
+            <img id="pop-up-img" src="" alt="Imagem-pop-up">
+
+            <h2 id="pop-up-title"></h2>
+
+            <p id="pop-up-text"></p>
         </section>
     </main>
 
