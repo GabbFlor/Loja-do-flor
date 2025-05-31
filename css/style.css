@@ -526,7 +526,6 @@ footer nav ul li img {
     }
 
     .contato-form button, .contato-form a {
-        height: 30px;
         padding: 5px 15px 5px 15px;
         font-size: 1.75vw;
     }
@@ -636,7 +635,6 @@ footer nav ul li img {
     }
 
     .contato-form button, .contato-form a {
-        height: 30px;
         padding: 5px 15px 5px 15px;
         font-size: 3vw;
     }
