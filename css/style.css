@@ -333,12 +333,113 @@ footer nav ul li img {
     filter: invert(1) brightness(2);
 }
 
+/* PAG DE CONTATO */
+
+.main-contato {
+    /* calcula o tamanho subtraindo o header e o footer (arrumar na responsividade) */
+    height: calc(100vh - 113.35px - 153.35px);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.main-contato section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 25%;
+}
+
+.main-contato section h1 {
+    font-size: 2vw;
+    font-weight: 400;
+}
+
+.contato-form {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #341659;
+    padding: 25px;
+    border-radius: 7.5px;
+}
+
+.contato-form div:not(.div-buttons-form) {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5px;
+}
+
+.contato-form div label {
+    font-size: 1.15vw;
+}
+
+.contato-form input, .contato-form textarea {
+    height: 25px;
+    font-size: 1vw;
+    border-radius: 3px;
+    outline: none;
+    padding: 5px;
+    background-color: #452079;
+    color: white;
+    border: 1px solid #7D3CCF;
+    transition: all 0.2s ease-in-out;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  outline: none;
+  border: 1px solid #AA6CFF;
+  box-shadow: 0 0 5px #AA6CFF;
+  transition: all 0.2s ease-in-out;
+}
+
+.contato-form textarea {
+    height: 80px !important;
+    resize: none;
+}
+
+.div-buttons-form {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin-top: 5px;
+}
+
+.contato-form button, .contato-form a {
+    width: fit-content;
+    padding: 7.5px 15px 7.5px 15px !important;
+    font-size: 1vw;
+    background-color: #4E2683;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.contato-form button:hover , .contato-form a:hover {
+    outline: none;
+    border: 1px solid #AA6CFF;
+    box-shadow: 0 0 5px #AA6CFF;
+    transition: all 0.2s ease-in-out;
+}
+
 /* responsividade para tablet */
 @media (max-width: 800px) {
     .div-sobre-nos h1, 
     .div-maps h1,
     .div-detalhes-empresa h1,
-    .div-video h1:not(.detalhes-escrita h1) {
+    .div-video h1,
+    .main-contato section h1:not(.detalhes-escrita h1) {
         text-align: center;
         font-weight: 400;
         margin-top: 25px;
@@ -405,6 +506,30 @@ footer nav ul li img {
     .btn-close-pop-up img {
         height: 2.5vw;
     }
+
+    .main-contato section {
+        gap: 25px;
+        width: 50%;
+    }
+
+    .contato-form div label {
+        font-size: 1.75vw;
+    }
+
+    .contato-form input, .contato-form textarea {
+        height: 25px;
+        font-size: 1.75vw;
+    }
+
+    .contato-form textarea {
+        height: 80px !important;
+    }
+
+    .contato-form button, .contato-form a {
+        height: 30px;
+        padding: 5px 15px 5px 15px;
+        font-size: 1.75vw;
+    }
 }
 
 /* responsividade para mobile */
@@ -425,7 +550,8 @@ footer nav ul li img {
     .div-maps h1,
     .div-detalhes-empresa h1,
     .div-video h1,
-    .div-produtos h1:not(.detalhes-escrita h1) {
+    .div-produtos h1
+    .main-contato section h1:not(.detalhes-escrita h1) {
         font-size: 4.5vw;
     }
 
@@ -489,5 +615,29 @@ footer nav ul li img {
 
     .btn-close-pop-up img {
         height: 4.5vw;
+    }
+
+    .main-contato section {
+        gap: 25px;
+        width: 80%;
+    }
+
+    .contato-form div label {
+        font-size: 3vw;
+    }
+
+    .contato-form input, .contato-form textarea {
+        height: 25px;
+        font-size: 3vw;
+    }
+
+    .contato-form textarea {
+        height: 80px !important;
+    }
+
+    .contato-form button, .contato-form a {
+        height: 30px;
+        padding: 5px 15px 5px 15px;
+        font-size: 3vw;
     }
 }
