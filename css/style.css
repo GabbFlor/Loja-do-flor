@@ -24,6 +24,8 @@ header {
 .logo {
     text-align: center;
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 .logo img {
@@ -194,6 +196,7 @@ footer nav ul li img {
 
 .logo-footer h1 {
     font-size: 1.5vw;
+    color: white;
 }
 
 
@@ -316,7 +319,7 @@ footer nav ul li img {
 }
 
 .hidden-element {
-    display: none;
+    display: none !important;
 }
 
 .btn-close-pop-up {
@@ -352,7 +355,7 @@ footer nav ul li img {
     margin-bottom: 25px;
 }
 
-.main-contato section {
+.main-contato section:not(.agradecimento) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -360,9 +363,13 @@ footer nav ul li img {
     width: 27.5%;
 }
 
-.main-contato section h1 {
+.main-contato section h1, .agradecimento h1 {
     font-size: 2vw;
     font-weight: 400;
+}
+
+.agradecimento h1 {
+    text-align: center;
 }
 
 .contato-form {
@@ -381,7 +388,7 @@ footer nav ul li img {
     gap: 2.5px;
 }
 
-.contato-form div label {
+.contato-form div label, .agradecimento p {
     font-size: 1.15vw;
 }
 
@@ -438,6 +445,17 @@ footer nav ul li img {
     transition: all 0.2s ease-in-out;
 }
 
+.agradecimento {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 85%;
+}
+
+.agradecimento p {
+    text-align: center;
+}
+
 /* responsividade para tablet */
 @media (max-width: 800px) {
     header .lista ul {
@@ -449,6 +467,7 @@ footer nav ul li img {
     .div-detalhes-empresa h1,
     .div-video h1,
     .main-contato section h1,
+    .agradecimento h1,
     .div-produtos h1:not(.detalhes-escrita h1) {
         text-align: center;
         font-weight: 400;
@@ -521,12 +540,12 @@ footer nav ul li img {
         height: 2.5vw;
     }
 
-    .main-contato section {
+    .main-contato section:not(.agradecimento) {
         gap: 25px;
         width: 50%;
     }
 
-    .contato-form div label {
+    .contato-form div label, .agradecimento p {
         font-size: 1.75vw;
     }
 
@@ -564,7 +583,8 @@ footer nav ul li img {
     .div-detalhes-empresa h1,
     .div-video h1,
     .div-produtos h1,
-    .main-contato section h1:not(.detalhes-escrita h1) {
+    .main-contato section h1,
+    .agradecimento h1:not(.detalhes-escrita h1) {
         font-size: 4.5vw;
     }
 
@@ -634,12 +654,12 @@ footer nav ul li img {
         height: 4.5vw;
     }
 
-    .main-contato section {
+    .main-contato section:not(.agradecimento) {
         gap: 25px;
         width: 80%;
     }
 
-    .contato-form div label {
+    .contato-form div label, .agradecimento p {
         font-size: 3vw;
     }
 

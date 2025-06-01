@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flor store - produtos</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./assets/icone-loja.png" type="image/x-icon">
 </head>
 <body>
     <header>
-        <div class="logo">
+        <a href="index.html" class="logo">
             <img src="assets/icone-loja.png" alt="logo-loja">
             <h1>🌟Loja do Florindo🌟</h1>
-        </div>
+        </a>
 
         <!-- menu -->
         <nav class="lista">
@@ -24,33 +25,39 @@
     </header>
 
     <main class="main-contato">
-        <section>
+        <section id="section-form-contato">
             <h1>💬 Formulário de contato 💬</h1>
 
-            <form method="GET" class="contato-form">
+            <form class="contato-form" id="formulario">
                 <div>
-                    <label for="">Email:</label>
-                    <input type="email" name="email">
+                    <label for="">Nome:</label>
+                    <input type="text" name="nome" id="nome" required>
                 </div>
                 <div>
-                    <label for="">Telefone:</label>
-                    <input type="tel" name="telefone">
+                    <label for="">Email:</label>
+                    <input type="email" name="email" id="email" required>
                 </div>
                 <div>
                     <label for="">Motivo do contato:</label>
-                    <input type="text" name="motivo_contato">
+                    <input type="text" name="motivo_contato" id="motivoContato" required>
                 </div>
                 <div>
                     <label for="">Mais informações:</label>
-                    <textarea name="informacoes"></textarea>
+                    <textarea name="informacoes" id="maisInfos" required></textarea>
                 </div>
 
                 <div class="div-buttons-form">
                     <a href="index.html">Voltar</a>
 
-                    <button>Enviar</button>
+                    <button id="btnEnviar" type="submit">Enviar</button>
                 </div>
             </form>
+        </section>
+
+        <section class="hidden-element agradecimento" id="section-agradecimento">
+            <h1>Muito obrigado! 💜</h1>
+
+            <p>Agradecemos pelo seu contato senhor(a) <span id="usernameMsg"></span>! Informamos que recebemos a sua mensagem e já estamos trabalhando para propor melhorias :) 👍</p>
         </section>
     </main>
     
@@ -70,4 +77,6 @@
             </ul>
         </nav>
     </footer>
+
+    <script src="./scripts/Form.js"></script>
 </body>
