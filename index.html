@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Flor store</title>
     <link rel="shortcut icon" href="./assets/icone-loja.png" type="image/x-icon">
+
+    <script>
+        dia = new Array("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado");
+        mes = new Array ("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+        data = new Date;
+
+        console.log(`Data de hoje: ${dia[data.getDay()] + ", " + data.getDay() + " De " + mes[data.getMonth()] + " De " + data.getFullYear()}`);
+    </script>
 </head>
 <body>
     <header>
