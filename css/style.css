@@ -83,7 +83,8 @@ main .banner img {
 .div-maps h1,
 .div-detalhes-empresa h1,
 .div-video h1,
-.div-produtos h1:not(.detalhes-escrita h1) {
+.div-produtos h1,
+.div-encomendas h1:not(.detalhes-escrita h1) {
     text-align: center;
     font-weight: 400;
     margin-top: 25px;
@@ -453,6 +454,17 @@ footer nav ul li img {
 }
 
 .agradecimento p {
+    text-align: center;
+}
+
+.div-table table {
+    /* border: 1px solid white; */
+    color: white;
+}
+
+.div-table th, .div-table td {
+    border: 1px solid white;
+    padding: 5px;
     text-align: center;
 }
 
