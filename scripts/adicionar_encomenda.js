@@ -1,6 +1,7 @@
 var btnAdd = document.querySelector("#adicionar-encomenda");
 var form = document.querySelector("#form-encomenda");
 var tabela = document.querySelector("#table");
+// let clientes = document.querySelectorAll(".cliente");
 
 
 btnAdd.addEventListener("click", function(e) {
@@ -23,10 +24,6 @@ btnAdd.addEventListener("click", function(e) {
         "total"
     ]
 
-    // coleta a linha atual para n fazer cunfusao com as classes
-    var linhaAtual = document.querySelectorAll(".cliente").length + 1;
-    console.log(`linha : ${linhaAtual}`)
-
     // cria a linha
     trNova = tabela.appendChild(document.createElement("tr"))
     trNova.classList.add("cliente")
@@ -35,17 +32,15 @@ btnAdd.addEventListener("click", function(e) {
     for(let i = 0; i < 6; i++) {
         let tdNovo = document.createElement("td")
         tdNovo.classList.add(dicionario[i]);
-        tdNovo.classList.add(linhaAtual)
 
         trNova.appendChild(tdNovo);
     }
 
     // adiciona os valores digitados um por um nos td's
     for(let i = 0; i < 5; i++) {
-        let teste = document.querySelector(`.${dicionario[i]}${linhaAtual}`);
+        document.querySelector(`.${dicionario[i]}`).textContent = "teste";
 
-        console.warn(`.${dicionario[i]} ${linhaAtual}`)
-        console.warn(teste)
+        console.warn(`.${dicionario[i]}`)
 
         console.log(`Classe = ${dicionario[i]} | Valor = ${formValues[i]}`)
     }
