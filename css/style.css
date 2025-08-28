@@ -84,7 +84,8 @@ main .banner img {
 .div-detalhes-empresa h1,
 .div-video h1,
 .div-produtos h1,
-.div-encomendas h1:not(.detalhes-escrita h1) {
+.div-encomendas h1,
+.div-form-encomenda h1:not(.detalhes-escrita h1) {
     text-align: center;
     font-weight: 400;
     margin-top: 25px;
@@ -373,7 +374,8 @@ footer nav ul li img {
     text-align: center;
 }
 
-.contato-form {
+.contato-form, 
+.div-form-encomenda form {
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -383,17 +385,24 @@ footer nav ul li img {
     border-radius: 7.5px;
 }
 
-.contato-form div:not(.div-buttons-form) {
+.contato-form div:not(.div-buttons-form),
+.div-form-encomenda form div:not(.div-buttons-form-encomenda) {
     display: flex;
     flex-direction: column;
     gap: 2.5px;
 }
 
-.contato-form div label, .agradecimento p {
+.contato-form div label, 
+.agradecimento p,
+.div-form-encomenda p {
     font-size: 1.15vw;
 }
 
-.contato-form input, .contato-form textarea {
+.contato-form input, 
+.contato-form textarea,
+.div-form-encomenda input,
+.div-form-encomenda textarea,
+.div-form-encomenda select {
     height: 25px;
     font-size: 1vw;
     border-radius: 3px;
@@ -406,19 +415,24 @@ footer nav ul li img {
 }
 
 .contato-form input:focus,
-.contato-form textarea:focus {
+.contato-form textarea:focus,
+.div-form-encomenda input:focus,
+.div-form-encomenda textarea:focus,
+.div-form-encomenda select:focus {
   outline: none;
   border: 1px solid #AA6CFF;
   box-shadow: 0 0 5px #AA6CFF;
   transition: all 0.2s ease-in-out;
 }
 
-.contato-form textarea {
+.contato-form textarea,
+.div-form-encomenda textarea {
     height: 80px !important;
     resize: none;
 }
 
-.div-buttons-form {
+.div-buttons-form,
+.div-buttons-form-encomenda {
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
@@ -426,7 +440,9 @@ footer nav ul li img {
     margin-top: 5px;
 }
 
-.contato-form button, .contato-form a {
+.contato-form button, 
+.contato-form a,
+.div-buttons-form-encomenda button {
     width: fit-content;
     padding: 7.5px 15px 7.5px 15px !important;
     font-size: 1vw;
@@ -439,7 +455,9 @@ footer nav ul li img {
     text-decoration: none;
 }
 
-.contato-form button:hover , .contato-form a:hover {
+.contato-form button:hover , 
+.contato-form a:hover,
+.div-buttons-form-encomenda button:hover {
     outline: none;
     border: 1px solid #AA6CFF;
     box-shadow: 0 0 5px #AA6CFF;
@@ -466,6 +484,35 @@ footer nav ul li img {
     border: 1px solid white;
     padding: 5px;
     text-align: center;
+}
+
+/* Pag encomendas (OS ESTILOS PADRÕES ESTÃO JUNTOS COM O STYLE DOFORM DE CONTATO) */
+.div-form-encomenda {
+    margin-top: 20px;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25vw;
+}
+
+.div-form-encomenda select {
+    height: 40px;
+}
+
+.div-form-encomenda p {
+    color: white;
+}
+
+.div-form-encomenda input::placeholder,
+.div-form-encomenda textarea::placeholder {
+    color: rgb(202, 202, 202);
+}
+
+/* classe para o js (pag encomendas) */
+.valor-invalido {
+    color: red;
 }
 
 /* responsividade para tablet */

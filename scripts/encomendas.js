@@ -10,12 +10,12 @@ for (let count=0; count < clientes.length; count++) {
     
     // verifica o valor de "qtd", se for inválido informa na tabela, se não calcula o total
     if(qtd < 1 || isNaN(qtd)) {
-        clientes[count].querySelector(".qtd").style.color = "red";
+        clientes[count].classList.add("valor-invalido");
         clientes[count].querySelector(".qtd").textContent = "Quantidade inválida!";
 
         produtoValido = false;
     } else if(valorUn < 1 || isNaN(valorUn)) {
-        clientes[count].querySelector(".valorUn").style.color = "red";
+        clientes[count].classList.add("valor-invalido");
         clientes[count].querySelector(".valorUn").textContent = "Valor inválido!";
 
         produtoValido = false;
@@ -25,7 +25,7 @@ for (let count=0; count < clientes.length; count++) {
         clientes[count].querySelector(".total").textContent = calculoTotal(qtd, valorUn)
     } else {
         clientes[count].querySelector(".total").textContent = 0;
-        clientes[count].querySelector(".total").style.color = "red";
+        clientes[count].querySelector(".total").classList.add("valor-invalido");
     }
 }
 

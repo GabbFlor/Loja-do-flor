@@ -43,7 +43,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="table">
                     <tr class="cliente">
                         <td class="nome">RTX 4080</td>
                         <td class="tipo">Placa de vídeo</td>
@@ -76,7 +76,59 @@
             </table>
         </section>
 
+        <section class="div-form-encomenda">
+            <h1>Adicionar encomendas</h1>
+
+            <form id="form-encomenda">
+                <div>
+                    <p>Nome:</p>
+                    <input type="text" id="nome" placeholder="Digite aqui....">
+                </div>
+
+                <div>
+                    <p>Tipo</p>
+                    <select name="" id="select_tipo">
+                        <option value="">--Selecione--</option>
+                        <option value="Placa mãe">Placa mãe</option>
+                        <option value="Placa de video">Placa de vídeo</option>
+                        <option value="Processador">Processador</option>
+                        <option value="Memória ram">Memória Ram</option>
+                        <option value="HD">HD</option>
+                        <option value="SSD">SSD</option>
+                        <option value="Fonte">Fonte</option>
+                        <option value="Gabinete">Gabinete</option>
+                        <option value="Monitores">Monitores</option>
+                        <option value="Mouse">Mouse</option>
+                        <option value="Teclado">Teclado</option>
+                        <option value="Fontes">Fones</option>
+                    </select>
+                </div>
+
+                <div>
+                    <p>Especificação:</p>
+                    <textarea name="" id="especificacao" placeholder="Digite aqui..."></textarea>
+                </div>
+
+                <div>
+                    <p>Valor unitário:</p>
+                    <input type="number" id="valor_un" placeholder="Digite aqui...">
+                </div>
+
+                <div>
+                    <p>Quantidade:</p>
+                    <input type="number" id="qtd" placeholder="Digite aqui....">
+                </div>
+
+                <div class="div-buttons-form-encomenda">
+                    <button type="button">Limpar</button>
+
+                    <button type="submit" id="adicionar-encomenda">Adicionar</button>
+                </div>
+            </form>
+        </section>
+
         <script src="scripts/encomendas.js"></script>
+        <script src="scripts/adicionar_encomenda.js"></script>
     </main>
 
     <footer>
