@@ -4,6 +4,7 @@ let table = document.querySelector("#table")
 var btnAdd = document.querySelector("#adicionar-encomenda");
 var btnLimpar = document.querySelector("#limpar-form")
 var form = document.querySelector("#form-encomenda");
+var inputPesquisa = document.querySelector("#input-pesquisa");
 
 // Array dos produtos
 let produtos = [
@@ -39,7 +40,6 @@ let produtos = [
 // renderiza a tabela com os valores padrão do array
 atualizarTabela();
 
-// dispara quando o btn de adicionar produto é pressionado
 btnAdd.addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -62,9 +62,19 @@ btnAdd.addEventListener("click", function(e) {
     limparInputsForm();
 })
 
-// dispara quando o btn de limpar form é pressionado
 btnLimpar.addEventListener("click", function() {
     limparInputsForm()
+})
+
+inputPesquisa.addEventListener("input", function(value) {
+    // inputPesquisa.value
+    
+    if (inputPesquisa.value.length > 0) {
+        atualizarTabela(inputPesquisa.value)
+        console.log(inputPesquisa.value)
+    } else {
+        atualizarTabela()
+    }
 })
 
 function deletarProduto(idProduto) {
@@ -78,73 +88,139 @@ function deletarProduto(idProduto) {
     }
 }
 
-function atualizarTabela() {
+function atualizarTabela(pesquisa) {
     // deleta todos os elementos do tbody para funcionar como um "atualizar"
     table.innerHTML = ""
 
-    // console.log(produtos)
+    if (pesquisa != undefined) {
+        // verificando se tem algo assim na array
 
-    produtos.map(function(produto, i) {
-        let produtoValido = true;
+        produtos.map(function(produto, i) {
+            if (produto.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase())) {
+                let produtoValido = true;
 
-        // Gerando a linha do produto
-        trNova = table.appendChild(document.createElement("tr"));
-        trNova.classList.add("cliente");
-        trNova.id = produto.id;
-
-
-        // criando as tags "td"
-        tdNome = trNova.appendChild(document.createElement("td"));
-        tdNome.classList.add("nome");
-        tdTipo = trNova.appendChild(document.createElement("td"));
-        tdTipo.classList.add("tipo");
-        tdEspec = trNova.appendChild(document.createElement("td"));
-        tdEspec.classList.add("espec");
-        tdValorUn = trNova.appendChild(document.createElement("td"));
-        tdValorUn.classList.add("valorUn");
-        tdQtd = trNova.appendChild(document.createElement("td"));
-        tdQtd.classList.add("qtd");
-        tdValor = trNova.appendChild(document.createElement("td"));
-        tdValor.classList.add("valor");
-
-        tdAcoes = trNova.appendChild(document.createElement("td"));
-
-        // criando o btn de deletar
-        btnDeletar = document.createElement("button")
-        btnDeletar.classList.add("btn", "deletar")
-        btnDeletar.addEventListener("click", () => deletarProduto(produto.id));
-        btnDeletar.innerHTML = "deletar"
-
-        // adicionando o btn de deletar na td
-        tdAcoes.appendChild(btnDeletar)
-        
-
-        // adicionando o valor do produto dentro das tags "td"
-        tdNome.textContent = produto.nome;
-        tdTipo.textContent = produto.tipo;
-        tdEspec.textContent = produto.espec;
-        tdValorUn.textContent = produto.valorUn;
-        tdQtd.textContent = produto.qtd;
+                // Gerando a linha do produto
+                trNova = table.appendChild(document.createElement("tr"));
+                trNova.classList.add("cliente");
+                trNova.id = produto.id;
 
 
-        // verificando e formatando a linha
-        if(produto.qtd < 1 || isNaN(produto.qtd)) {
-            tdQtd.textContent = "Quantidade inválida!";
+                // criando as tags "td"
+                tdNome = trNova.appendChild(document.createElement("td"));
+                tdNome.classList.add("nome");
+                tdTipo = trNova.appendChild(document.createElement("td"));
+                tdTipo.classList.add("tipo");
+                tdEspec = trNova.appendChild(document.createElement("td"));
+                tdEspec.classList.add("espec");
+                tdValorUn = trNova.appendChild(document.createElement("td"));
+                tdValorUn.classList.add("valorUn");
+                tdQtd = trNova.appendChild(document.createElement("td"));
+                tdQtd.classList.add("qtd");
+                tdValor = trNova.appendChild(document.createElement("td"));
+                tdValor.classList.add("valor");
 
-            produtoValido = false;
-        } else if(produto.valorUn < 1 || isNaN(produto.valorUn)) {
-            tdValorUn.textContent = "Valor inválido!";
+                tdAcoes = trNova.appendChild(document.createElement("td"));
 
-            produtoValido = false;
-        }
+                // criando o btn de deletar
+                btnDeletar = document.createElement("button")
+                btnDeletar.classList.add("btn", "deletar")
+                btnDeletar.addEventListener("click", () => deletarProduto(produto.id));
+                btnDeletar.innerHTML = "deletar"
 
-        if (produtoValido == false) {
-            trNova.classList.add("valor-invalido")
-            tdValor.textContent = 0;
-        } else {
-            tdValor.textContent = calculoTotal(produto.qtd, produto.valorUn);
-        }
-    })
+                // adicionando o btn de deletar na td
+                tdAcoes.appendChild(btnDeletar)
+                    
+
+                // adicionando o valor do produto dentro das tags "td"
+                tdNome.textContent = produto.nome;
+                tdTipo.textContent = produto.tipo;
+                tdEspec.textContent = produto.espec;
+                tdValorUn.textContent = produto.valorUn;
+                tdQtd.textContent = produto.qtd;
+
+
+                // verificando e formatando a linha
+                if(produto.qtd < 1 || isNaN(produto.qtd)) {
+                    tdQtd.textContent = "Quantidade inválida!";
+
+                    produtoValido = false;
+                } else if(produto.valorUn < 1 || isNaN(produto.valorUn)) {
+                    tdValorUn.textContent = "Valor inválido!";
+
+                    produtoValido = false;
+                }
+
+                if (produtoValido == false) {
+                    trNova.classList.add("valor-invalido")
+                    tdValor.textContent = 0;
+                } else {
+                    tdValor.textContent = calculoTotal(produto.qtd, produto.valorUn);
+                }
+            }
+        })
+    } else {
+        produtos.map(function(produto, i) {
+            let produtoValido = true;
+
+            // Gerando a linha do produto
+            trNova = table.appendChild(document.createElement("tr"));
+            trNova.classList.add("cliente");
+            trNova.id = produto.id;
+
+
+            // criando as tags "td"
+            tdNome = trNova.appendChild(document.createElement("td"));
+            tdNome.classList.add("nome");
+            tdTipo = trNova.appendChild(document.createElement("td"));
+            tdTipo.classList.add("tipo");
+            tdEspec = trNova.appendChild(document.createElement("td"));
+            tdEspec.classList.add("espec");
+            tdValorUn = trNova.appendChild(document.createElement("td"));
+            tdValorUn.classList.add("valorUn");
+            tdQtd = trNova.appendChild(document.createElement("td"));
+            tdQtd.classList.add("qtd");
+            tdValor = trNova.appendChild(document.createElement("td"));
+            tdValor.classList.add("valor");
+
+            tdAcoes = trNova.appendChild(document.createElement("td"));
+
+            // criando o btn de deletar
+            btnDeletar = document.createElement("button")
+            btnDeletar.classList.add("btn", "deletar")
+            btnDeletar.addEventListener("click", () => deletarProduto(produto.id));
+            btnDeletar.innerHTML = "deletar"
+
+            // adicionando o btn de deletar na td
+            tdAcoes.appendChild(btnDeletar)
+            
+
+            // adicionando o valor do produto dentro das tags "td"
+            tdNome.textContent = produto.nome;
+            tdTipo.textContent = produto.tipo;
+            tdEspec.textContent = produto.espec;
+            tdValorUn.textContent = produto.valorUn;
+            tdQtd.textContent = produto.qtd;
+
+
+            // verificando e formatando a linha
+            if(produto.qtd < 1 || isNaN(produto.qtd)) {
+                tdQtd.textContent = "Quantidade inválida!";
+
+                produtoValido = false;
+            } else if(produto.valorUn < 1 || isNaN(produto.valorUn)) {
+                tdValorUn.textContent = "Valor inválido!";
+
+                produtoValido = false;
+            }
+
+            if (produtoValido == false) {
+                trNova.classList.add("valor-invalido")
+                tdValor.textContent = 0;
+            } else {
+                tdValor.textContent = calculoTotal(produto.qtd, produto.valorUn);
+            }
+        })
+    }
 }
 
 function calculoTotal(qtdCalc, valorCalc) {
