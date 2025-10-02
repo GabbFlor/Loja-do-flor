@@ -8,37 +8,15 @@ var inputPesquisa = document.querySelector("#input-pesquisa");
 
 // Array dos produtos
 let produtos = [
-    {
-        "id": 1,
-        "nome": "RTX 4080",
-        "tipo": "Placa de vídeo",
-        "espec": "Placa de vídeo focada em alta performance para jogos.",
-        "valorUn": 11000,
-        "qtd": 4,
-        "valor": 0,
-    },
-    {
-        "id": 2,
-        "nome": "I9 13900k",
-        "tipo": "Processador",
-        "espec": "Processador de uso profissional focado para joos e tarefas de alta performance.",
-        "valorUn": -4000,
-        "qtd": 2,
-        "valor": 0,
-    },
-    {
-        "id": 3,
-        "nome": "Asus Tuf Gaming Z790",
-        "tipo": "Placa mãe",
-        "espec": "Placa mãe com o soquete LGA1700, perfeito para portar o I9 13900k",
-        "valorUn": 2500,
-        "qtd": 0,
-        "valor": 0,
-    }
+    
 ]
 
-// renderiza a tabela com os valores padrão do array
-atualizarTabela();
+recuperarProdutos()
+    .then(data => {
+        produtos = data;
+        atualizarTabela();
+    })
+    .catch(err => console.error(`Erro ao recuperar dados da API: ${err}`))
 
 btnAdd.addEventListener("click", function(e) {
     e.preventDefault();
